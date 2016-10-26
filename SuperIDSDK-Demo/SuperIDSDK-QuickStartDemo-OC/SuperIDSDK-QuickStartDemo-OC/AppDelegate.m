@@ -28,7 +28,7 @@
     
     
     //Step_2:  使用从一登官网创建的App应用获取到的AppID和AppSecret,注册一登SDK服务
-    [[SuperID sharedInstance] registerAppWithAppID:@"5700d5864bed786df6684670" withAppSecret:@"7b431e54c5b217f23a02d2c8"];
+    [SuperID registerAppWithAppID:@"5700d5864bed786df6684670" withAppSecret:@"7b431e54c5b217f23a02d2c8"];
     
     //Step_3:  开启或关闭调试模式,YES开启调试模式,App在运行时,控制台会输出相应信息
     [SuperID setDebugMode:YES];

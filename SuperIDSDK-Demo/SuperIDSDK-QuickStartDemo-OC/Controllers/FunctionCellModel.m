@@ -31,8 +31,8 @@
             break;
         case FunctionTypeFaceEmotion:
             _title = @"人脸表情";
-            _titleColor = [UIColor lightGrayColor];
-            _enabled = NO;
+            _titleColor = [UIColor blackColor];
+            _enabled = YES;
             break;
         case FunctionTypeFaceVerify:
             _title = @"刷脸认证";

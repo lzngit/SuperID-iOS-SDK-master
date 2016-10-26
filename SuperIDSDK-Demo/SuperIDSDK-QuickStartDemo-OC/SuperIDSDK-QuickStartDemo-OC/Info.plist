@@ -6,6 +6,10 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>一登Demo</string>
+    <key>NSCameraUsageDescription</key>
+    <string>一登需要使用您的相机进行刷脸认证</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>一登需要访问您的相册</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "FunctionCellModel.h"
+#import "SecondListVC.h"
 
 //Step_1:  引用头文件"SuperID.h"
 #import "SuperID.h"
@@ -29,13 +30,21 @@
     //刷新列表数据
     [self refreshTableData];
     
+    //点击进入深度集成功能页面
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithTitle:@"深度集成" style:UIBarButtonItemStylePlain target:self action:@selector(barBtnClicked)];
+    self.navigationItem.rightBarButtonItem = barBtn;
+}
+
+- (void)barBtnClicked
+{
+    [self.navigationController pushViewController:[[SecondListVC alloc] init] animated:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     //Step_3:  设置|SuperID|代理
-    [SuperID sharedInstance].delegate = self;
+    [SuperID setupSuperIDDelegate:self];
 }
 
 //创建UI
@@ -87,7 +96,7 @@
 - (void)openLoginSucceedRefreshTableState
 {
     for (FunctionCellModel *model in self.data) {
-        if (model.type == FunctionTypeSuperIDLogin) {
+        if (model.type == FunctionTypeSuperIDLogin || model.type == FunctionTypeFaceEmotion) {
             model.titleColor = [UIColor blackColor];
             model.enabled = YES;
         }else {
@@ -154,7 +163,8 @@
 
 #pragma mark - SuperIDDelegate
 //登录处理
-- (void)superID:(SuperID *)sender userDidFinishLoginWithUserInfo:(NSDictionary *)userInfo withOpenId:(NSString *)openId error:(NSError *)error{
+- (void)superID:(SuperID *)sender userDidFinishLoginWithUserInfo:(NSDictionary *)userInfo openId:(NSString *)openId error:(NSError *)error
+{
     if (!error) {
         [self loginSucceedRefreshTableState];
         NSLog(@"一登登录成功,返回openId:%@",openId);
@@ -199,7 +209,7 @@
 - (void)superID:(SuperID *)sender userDidFinishCancelAuthorization:(NSError *)error
 {
     if (!error) {
-        [[SuperID sharedInstance] appUserLogoutCurrentAccount];
+        [SuperID appUserLogoutCurrentAccount];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"解绑成功" message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
         [alert show];
         //解绑成功,重新开启一登登录功能
@@ -216,7 +226,7 @@
 {
     NSError *error = nil;
     //获取SuperID登录VC的实例
-    id loginVc = [[SuperID sharedInstance] obtainLoginViewControllerWithError:&error];
+    id loginVc = [SuperID obtainLoginViewControllerWithAppUserInfoModel:nil error:&error];
     //判断获取登录VC是否创建成功
     if (loginVc) {
         //如果loginVc非nil,则获取成功,则可以使用一登人脸登录服务
@@ -231,7 +241,7 @@
 - (void)faceEmotion
 {
     NSError *error = nil;
-    id emotionVc = [[SuperID sharedInstance] obtainFaceFeatureViewControllerWithError:&error];
+    id emotionVc = [SuperID obtainFaceFeatureViewControllerWithError:&error];
     if (emotionVc) {
         [self presentViewController:emotionVc animated:YES completion:nil];
     }else{
@@ -243,7 +253,7 @@
 - (void)faceVerify
 {
     NSError *error = nil;
-    id verifyVc = [[SuperID sharedInstance] obtainFaceVerifyViewControllerWithRetryCount:nil error:&error];
+    id verifyVc = [SuperID obtainFaceVerifyViewControllerWithRetryCount:nil error:&error];
     if (verifyVc) {
         [self presentViewController:verifyVc animated:YES completion:nil];
     }else{
@@ -254,13 +264,13 @@
 //解除绑定
 - (void)relieveBinding
 {
-    [[SuperID sharedInstance] userCancelAuthorization];
+    [SuperID userCancelAuthorization];
 }
 
 //退出登录
 - (void)quitSuperIDLogin
 {
-    [[SuperID sharedInstance] appUserLogoutCurrentAccount];
+    [SuperID appUserLogoutCurrentAccount];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"退出登录成功" message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
     [alert show];
     //退出登录,重新开启一登登录功能
