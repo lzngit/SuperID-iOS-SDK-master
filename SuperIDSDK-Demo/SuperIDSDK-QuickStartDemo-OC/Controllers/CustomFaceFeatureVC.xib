@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomFaceFeatureVC">
             <connections>
-                <outlet property="preView" destination="NHM-UH-9Nw" id="zSE-OZ-KiO"/>
+                <outlet property="preView" destination="NHM-UH-9Nw" id="NJb-x0-q9G"/>
                 <outlet property="view" destination="iN0-l3-epB" id="7bZ-27-jIc"/>
             </connections>
         </placeholder>
@@ -18,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHM-UH-9Nw" customClass="SIDCameraPreviewView">
-                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="BVa-FY-AcO"/>
                         <constraint firstAttribute="width" constant="200" id="KPB-1w-ynZ"/>

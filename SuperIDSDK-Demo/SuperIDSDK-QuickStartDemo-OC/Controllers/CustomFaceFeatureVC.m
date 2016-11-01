@@ -10,8 +10,7 @@
 
 @interface CustomFaceFeatureVC ()
 
-//此view不仅支持xib创建,也可以代码生成,可以灵活设置此view大小
-@property (weak, nonatomic) IBOutlet SIDCameraPreviewView *preView;
+
 
 @end
 
@@ -21,8 +20,19 @@
     [super viewDidLoad];
     
     //Step_2:  设置预览视频view,三方可以根据自身业务,灵活设置此view的大小,也可以设置隐藏
+    
+    //创建视频输出窗口view
+    SIDCameraPreviewView *preView = [[SIDCameraPreviewView alloc] init];
+    //设置frame,开发者可以使用约束灵活设置其frame
+    preView.frame = self.view.bounds;
+    //加载预览窗口view
+    [self.view addSubview:preView];
 
-    [self setupFaceFeatureManagerWithPreview:_preView];
+    [self setupFaceFeatureManagerWithPreview:preView];
+    
+    
+    
+    [self.view sendSubviewToBack:preView];
 
 }
 

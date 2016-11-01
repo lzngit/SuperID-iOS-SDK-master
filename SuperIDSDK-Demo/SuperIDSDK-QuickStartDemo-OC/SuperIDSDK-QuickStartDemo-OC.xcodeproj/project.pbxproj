@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C5B2B8D1DC0898900D1A947 /* libSuperIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5B2B861DC0898900D1A947 /* libSuperIDSDK.a */; };
-		1C5B2B8E1DC0898900D1A947 /* SuperIDSDKSettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1C5B2B8C1DC0898900D1A947 /* SuperIDSDKSettings.bundle */; };
+		1C5967AF1DC6FC500036A8DD /* libSuperIDSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5967A41DC6FC500036A8DD /* libSuperIDSDK.a */; };
+		1C5967B01DC6FC500036A8DD /* SuperIDSDKSettings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1C5967AE1DC6FC500036A8DD /* SuperIDSDKSettings.bundle */; };
 		1C5B2B941DC0960200D1A947 /* SecondListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B2B931DC0960200D1A947 /* SecondListVC.m */; };
 		1C5B2B971DC0988700D1A947 /* CustomFaceFeatureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B2B961DC0988700D1A947 /* CustomFaceFeatureVC.m */; };
 		1C5B2B9B1DC098A100D1A947 /* CustomSearchFaceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5B2B991DC098A100D1A947 /* CustomSearchFaceVC.m */; };
@@ -22,15 +22,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1C5B2B861DC0898900D1A947 /* libSuperIDSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSuperIDSDK.a; sourceTree = "<group>"; };
-		1C5B2B871DC0898900D1A947 /* SIDAppUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDAppUserInfoModel.h; sourceTree = "<group>"; };
-		1C5B2B881DC0898900D1A947 /* SIDHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDHeader.h; sourceTree = "<group>"; };
-		1C5B2B891DC0898900D1A947 /* SIDImageFilterCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDImageFilterCommon.h; sourceTree = "<group>"; };
-		1C5B2B8A1DC0898900D1A947 /* SuperID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperID.h; sourceTree = "<group>"; };
-		1C5B2B8B1DC0898900D1A947 /* SuperIDDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperIDDelegate.h; sourceTree = "<group>"; };
-		1C5B2B8C1DC0898900D1A947 /* SuperIDSDKSettings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SuperIDSDKSettings.bundle; sourceTree = "<group>"; };
-		1C5B2B901DC095C500D1A947 /* SIDFaceFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDFaceFeatureViewController.h; sourceTree = "<group>"; };
-		1C5B2B911DC095C500D1A947 /* SIDSearchFaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDSearchFaceViewController.h; sourceTree = "<group>"; };
+		1C5967A41DC6FC500036A8DD /* libSuperIDSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSuperIDSDK.a; sourceTree = "<group>"; };
+		1C5967A51DC6FC500036A8DD /* SIDAppUserInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDAppUserInfoModel.h; sourceTree = "<group>"; };
+		1C5967A61DC6FC500036A8DD /* SIDCameraManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDCameraManagerViewController.h; sourceTree = "<group>"; };
+		1C5967A71DC6FC500036A8DD /* SIDCameraPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDCameraPreviewView.h; sourceTree = "<group>"; };
+		1C5967A81DC6FC500036A8DD /* SIDFaceFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDFaceFeatureViewController.h; sourceTree = "<group>"; };
+		1C5967A91DC6FC500036A8DD /* SIDHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDHeader.h; sourceTree = "<group>"; };
+		1C5967AA1DC6FC500036A8DD /* SIDImageFilterCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDImageFilterCommon.h; sourceTree = "<group>"; };
+		1C5967AB1DC6FC500036A8DD /* SIDSearchFaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDSearchFaceViewController.h; sourceTree = "<group>"; };
+		1C5967AC1DC6FC500036A8DD /* SuperID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperID.h; sourceTree = "<group>"; };
+		1C5967AD1DC6FC500036A8DD /* SuperIDDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperIDDelegate.h; sourceTree = "<group>"; };
+		1C5967AE1DC6FC500036A8DD /* SuperIDSDKSettings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SuperIDSDKSettings.bundle; sourceTree = "<group>"; };
+		1C5967B11DC722590036A8DD /* SIDCoreLoginKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDCoreLoginKit.h; sourceTree = "<group>"; };
 		1C5B2B921DC0960200D1A947 /* SecondListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondListVC.h; sourceTree = "<group>"; };
 		1C5B2B931DC0960200D1A947 /* SecondListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondListVC.m; sourceTree = "<group>"; };
 		1C5B2B951DC0988700D1A947 /* CustomFaceFeatureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFaceFeatureVC.h; sourceTree = "<group>"; };
@@ -39,8 +42,6 @@
 		1C5B2B991DC098A100D1A947 /* CustomSearchFaceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSearchFaceVC.m; sourceTree = "<group>"; };
 		1C5B2B9A1DC098A100D1A947 /* CustomSearchFaceVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSearchFaceVC.xib; sourceTree = "<group>"; };
 		1C5B2B9D1DC098B500D1A947 /* CustomFaceFeatureVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomFaceFeatureVC.xib; sourceTree = "<group>"; };
-		1C5B2B9F1DC09A2400D1A947 /* SIDCameraManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDCameraManagerViewController.h; sourceTree = "<group>"; };
-		1C5B2BA01DC09A5200D1A947 /* SIDCameraPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SIDCameraPreviewView.h; sourceTree = "<group>"; };
 		1CF663301CF3F9E70060D98F /* SuperIDSDK-QuickStartDemo-OC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SuperIDSDK-QuickStartDemo-OC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CF663341CF3F9E80060D98F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1CF663361CF3F9E80060D98F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,27 +59,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C5B2B8D1DC0898900D1A947 /* libSuperIDSDK.a in Frameworks */,
+				1C5967AF1DC6FC500036A8DD /* libSuperIDSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C5B2B851DC0898900D1A947 /* SuperIDSDK */ = {
+		1C5967A31DC6FC500036A8DD /* SuperIDSDK */ = {
 			isa = PBXGroup;
 			children = (
-				1C5B2B861DC0898900D1A947 /* libSuperIDSDK.a */,
-				1C5B2BA01DC09A5200D1A947 /* SIDCameraPreviewView.h */,
-				1C5B2B9F1DC09A2400D1A947 /* SIDCameraManagerViewController.h */,
-				1C5B2B901DC095C500D1A947 /* SIDFaceFeatureViewController.h */,
-				1C5B2B911DC095C500D1A947 /* SIDSearchFaceViewController.h */,
-				1C5B2B871DC0898900D1A947 /* SIDAppUserInfoModel.h */,
-				1C5B2B881DC0898900D1A947 /* SIDHeader.h */,
-				1C5B2B891DC0898900D1A947 /* SIDImageFilterCommon.h */,
-				1C5B2B8A1DC0898900D1A947 /* SuperID.h */,
-				1C5B2B8B1DC0898900D1A947 /* SuperIDDelegate.h */,
-				1C5B2B8C1DC0898900D1A947 /* SuperIDSDKSettings.bundle */,
+				1C5967A41DC6FC500036A8DD /* libSuperIDSDK.a */,
+				1C5967B11DC722590036A8DD /* SIDCoreLoginKit.h */,
+				1C5967A51DC6FC500036A8DD /* SIDAppUserInfoModel.h */,
+				1C5967A61DC6FC500036A8DD /* SIDCameraManagerViewController.h */,
+				1C5967A71DC6FC500036A8DD /* SIDCameraPreviewView.h */,
+				1C5967A81DC6FC500036A8DD /* SIDFaceFeatureViewController.h */,
+				1C5967A91DC6FC500036A8DD /* SIDHeader.h */,
+				1C5967AA1DC6FC500036A8DD /* SIDImageFilterCommon.h */,
+				1C5967AB1DC6FC500036A8DD /* SIDSearchFaceViewController.h */,
+				1C5967AC1DC6FC500036A8DD /* SuperID.h */,
+				1C5967AD1DC6FC500036A8DD /* SuperIDDelegate.h */,
+				1C5967AE1DC6FC500036A8DD /* SuperIDSDKSettings.bundle */,
 			);
 			path = SuperIDSDK;
 			sourceTree = "<group>";
@@ -101,7 +103,7 @@
 		1CF663271CF3F9E70060D98F = {
 			isa = PBXGroup;
 			children = (
-				1C5B2B851DC0898900D1A947 /* SuperIDSDK */,
+				1C5967A31DC6FC500036A8DD /* SuperIDSDK */,
 				1CF6635B1CF3FC780060D98F /* Controllers */,
 				1CF663321CF3F9E80060D98F /* SuperIDSDK-QuickStartDemo-OC */,
 				1CF663311CF3F9E70060D98F /* Products */,
@@ -206,7 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C5B2B8E1DC0898900D1A947 /* SuperIDSDKSettings.bundle in Resources */,
+				1C5967B01DC6FC500036A8DD /* SuperIDSDKSettings.bundle in Resources */,
 				1C5B2B9C1DC098A100D1A947 /* CustomSearchFaceVC.xib in Resources */,
 				1CF663401CF3F9E80060D98F /* Assets.xcassets in Resources */,
 				1C5B2B9E1DC098B500D1A947 /* CustomFaceFeatureVC.xib in Resources */,

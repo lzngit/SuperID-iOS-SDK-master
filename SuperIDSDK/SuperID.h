@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SuperIDDelegate.h"
 #import <UIKit/UIKit.h>
-#import "SIDImageFilterCommon.h"
+#import "SuperIDDelegate.h"
 #import "SIDAppUserInfoModel.h"
 
 
@@ -51,12 +50,6 @@
  *
  */
 + (void)removeThemeColor;
-
-/**
- *  删除默认存本地的手机号码
- *
- */
-+ (void)deleteSIDDefaultMobilePhoneNumber;
 
 
 
@@ -254,57 +247,5 @@
  *  @param actions    该事件的用户操作字典：如：收藏、分享、删除等操作记录。
  */
 + (void)uploadUserBehaviourEventDataWithActionTag:(NSString *)aTag attributes:(NSDictionary *)attributes actions:(NSDictionary *)actions;
-
-
-
-
-
-/**
- *  获取当前用户的人脸头像
- *
- */
-+ (NSData *)getSIDCurrentUserAvatar;
-
-
-
-
-
-+ (void)updateSuperIDAccountInfoWith:(NSDictionary *)info avatar:(NSData *)avatar;
-
-
-+ (NSString *)SIDHostName;
-
-
-+ (void)clearCache;
-
-
-+ (void)resetAppToken;
-
-
-+ (void)setupLoginViewCameraPositon:(SIDPreferCameraDevicePosition) positon;
-
-
-
-+ (void)queryCurrentUserAuthorizationStateWithUid:(NSString *)uid;
-
-/**
- *  当用户首次直接使用一登账号登录时，SuperID将返回关联的随机应用id。
- *  开发者获取当前用户的正式账号id后，调用该接口进行id更新。
- *  @param uid 当前用户的应用id。
- */
-+ (void)updateAppUid:(NSString *)uid;
-
-
-
-+ (UINavigationController *)obtainAdvancedFaceFeatureViewControllerWithError:(NSError **)error;
-
-
-/**
- *  必须在调用了初始化之后才执行，否则会被初始化的程序覆盖channelID
- *
- *  @param channel 频道ID
- */
-+ (void)setSIDChannel:(NSString *)channel;
-
 
 @end

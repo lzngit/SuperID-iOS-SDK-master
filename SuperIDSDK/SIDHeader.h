@@ -11,7 +11,12 @@
 
 #import "SuperIDDelegate.h"
 #import "SIDAppUserInfoModel.h"
-#import "SIDImageFilterCommon.h"
 #import "SuperID.h"
+#import "SIDCoreLoginKit.h"
+#import "SIDCameraPreviewView.h"
+#import "SIDCameraManagerViewController.h"
+#import "SIDSearchFaceViewController.h"
+#import "SIDFaceFeatureViewController.h"
+
 
 #endif /* SIDHeader_h */

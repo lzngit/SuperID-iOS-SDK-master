@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 
-//Step_1:  引用头文件"SuperID.h"
-#import "SuperID.h"
+//Step_1:  引用头文件"SIDHeader.h"
+#import "SIDHeader.h"
 
 
 @interface AppDelegate ()
@@ -36,6 +36,7 @@
     //Step_4:  设置一登SDK的展示的UI语言模式，默认为自动模式
     [SuperID setLanguageMode:SIDAutoMode];
     
+
     
     //进入Demo主页
     HomeViewController *home = [[HomeViewController alloc] init];

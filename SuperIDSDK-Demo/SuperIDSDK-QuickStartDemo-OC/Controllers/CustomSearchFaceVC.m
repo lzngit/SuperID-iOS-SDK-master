@@ -9,7 +9,7 @@
 #import "CustomSearchFaceVC.h"
 
 @interface CustomSearchFaceVC ()
-@property (weak, nonatomic) IBOutlet SIDCameraPreviewView *prevView;
+
 @end
 
 @implementation CustomSearchFaceVC

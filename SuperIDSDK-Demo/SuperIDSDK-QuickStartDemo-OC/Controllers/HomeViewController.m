@@ -10,8 +10,8 @@
 #import "FunctionCellModel.h"
 #import "SecondListVC.h"
 
-//Step_1:  引用头文件"SuperID.h"
-#import "SuperID.h"
+//Step_1:  引用头文件"SIDHeader.h"
+#import "SIDHeader.h"
 
 //Step_2:  遵守协议<SuperIDDelegate>
 @interface HomeViewController () <SuperIDDelegate,UITableViewDelegate,UITableViewDataSource>
@@ -162,48 +162,6 @@
 }
 
 #pragma mark - SuperIDDelegate
-//登录处理
-- (void)superID:(SuperID *)sender userDidFinishLoginWithUserInfo:(NSDictionary *)userInfo openId:(NSString *)openId error:(NSError *)error
-{
-    if (!error) {
-        [self loginSucceedRefreshTableState];
-        NSLog(@"一登登录成功,返回openId:%@",openId);
-        NSLog(@"一登登录成功,返回给开发者用户数据:%@",userInfo);
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"一登登录成功" message:@"控制台打印一登回传的数据" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
-        [alert show];
-     
-    }else{
-        //用户登录失败的执行内容
-        NSLog(@"loginView Error =%ld,%@",(long)[error code],[error localizedDescription]);
-    }
-}
-
-//人脸表情
-- (void)superID:(SuperID *)sender userDidFinishGetFaceFeatureWithFeatureInfo:(NSDictionary *) featureInfo error:(NSError *)error
-{
-    if (!error) {
-        NSLog(@"人脸表情获取成功,返回给开发者表情数据:%@",featureInfo);
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"人脸表情获取成功" message:@"控制台打印一登回传的表情数据" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
-        [alert show];
-        
-    }else{
-        //用户登录失败的执行内容
-        NSLog(@"获取表情Error =%ld,%@",(long)[error code],[error localizedDescription]);
-    }
-}
-
-//刷脸认证
-- (void)superID:(SuperID *)sender faceVerifyResponse:(SIDFACEVerifyState)state
-{
-    NSString *title = nil;
-    if (state == SIDFaceVerifySucceed) {
-        title = @"刷脸验证成功";
-    }else {
-        title = @"刷脸验证失败";
-    }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
-    [alert show];
-}
 
 //解绑处理
 - (void)superID:(SuperID *)sender userDidFinishCancelAuthorization:(NSError *)error
@@ -224,41 +182,66 @@
 //一登登录
 - (void)superIDLogin
 {
-    NSError *error = nil;
-    //获取SuperID登录VC的实例
-    id loginVc = [SuperID obtainLoginViewControllerWithAppUserInfoModel:nil error:&error];
-    //判断获取登录VC是否创建成功
-    if (loginVc) {
-        //如果loginVc非nil,则获取成功,则可以使用一登人脸登录服务
-        [self presentViewController:loginVc animated:YES completion:nil];
-    }else{
-        //如果loginVc为nil,打印error信息,查找bug
-        NSLog(@"Error =%ld,%@",(long)[error code],[error localizedDescription]);
-    }
+    //一登刷脸登录,弹出一登刷脸VC
+    //用户参数userInfoModel,有则可传入,没有就置为nil.
+    //例:如已知用户手机号,传入手机号参数phone,则用户首次登录时就不用输入手机号
+    [SIDCoreLoginKit showLoginViewControllerWithAppUserInfoModel:nil responseBlock:^(NSDictionary *result, NSError *error) {
+        if (!error) {
+            //授权登录成功
+            NSLog(@"userInfo:%@", result);
+
+            [self loginSucceedRefreshTableState];
+            NSLog(@"一登登录成功,返回给开发者用户数据:%@",result);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"一登登录成功" message:@"控制台打印一登回传的数据" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+            [alert show];
+            
+            
+    
+        }else {
+            //授权登录失败
+            NSLog(@"Login Fail Error =%ld,%@",(long)[error code],[error localizedDescription]);
+        }
+    }];
+    
 }
 
 //人脸表情
 - (void)faceEmotion
 {
-    NSError *error = nil;
-    id emotionVc = [SuperID obtainFaceFeatureViewControllerWithError:&error];
-    if (emotionVc) {
-        [self presentViewController:emotionVc animated:YES completion:nil];
-    }else{
-        NSLog(@"FaceEmotion Error =%ld,%@",(long)[error code],[error localizedDescription]);
-    }
+    [SIDCoreLoginKit showFaceFeatureViewControllerWithResponseBlock:^(NSDictionary *result, NSError *error) {
+        if (!error) {
+            NSLog(@"人脸表情获取成功,返回给开发者表情数据:%@",result);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"人脸表情获取成功" message:@"控制台打印一登回传的表情数据" delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+            [alert show];
+        }else {
+             NSLog(@"Face Feature Error =%ld,%@",(long)[error code],[error localizedDescription]);
+        }
+    }];
+
 }
 
 //刷脸认证
 - (void)faceVerify
 {
-    NSError *error = nil;
-    id verifyVc = [SuperID obtainFaceVerifyViewControllerWithRetryCount:nil error:&error];
-    if (verifyVc) {
-        [self presentViewController:verifyVc animated:YES completion:nil];
-    }else{
-        NSLog(@"FaceVerify Error =%ld,%@",(long)[error code],[error localizedDescription]);
-    }
+    
+    [SIDCoreLoginKit showFaceVerifyViewControllerWithRetryCount:nil responseBlock:^(SIDFACEVerifyState result, NSError *error) {
+        
+        if (!error) {
+            NSString *title = nil;
+            if (result == SIDFaceVerifySucceed) {
+                title = @"刷脸验证成功";
+            }else {
+                title = @"刷脸验证失败";
+            }
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:nil cancelButtonTitle:@"我知道了" otherButtonTitles:nil];
+            [alert show];
+        }else {
+            NSLog(@"FaceVerify Error =%ld,%@",(long)[error code],[error localizedDescription]);
+
+        }
+        
+    }];
+  
 }
 
 //解除绑定
